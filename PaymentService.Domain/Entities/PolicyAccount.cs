@@ -4,9 +4,9 @@
     using System.Linq;
     using System.Collections.Generic;
 
+    using MicroservicesPOC.Shared.Domain;
     using MicroservicesPOC.Shared.Extensions;
     using MicroservicesPOC.Shared.Common.Models;
-    using MicroservicesPOC.Shared.Common.Entities;
 
     public class PolicyAccount : Entity<Guid>
     {

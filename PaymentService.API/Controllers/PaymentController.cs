@@ -5,7 +5,7 @@
 
     using Microsoft.AspNetCore.Mvc;
     
-    using MicroservicesPOC.Shared.Controllers;
+    using MicroservicesPOC.Shared.API.Controllers;
 
     using PaymentService.Application.Account.Queries;
 

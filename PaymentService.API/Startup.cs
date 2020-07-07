@@ -11,9 +11,6 @@ namespace PaymentService.API
     using PaymentService.Application;
     using PaymentService.API.Extensions;
     using PaymentService.Infrastructure;
-    using System.Collections.Generic;
-    using System;
-    using MicroservicesPOC.Shared.Messaging.Events;
 
     public class Startup
     {
