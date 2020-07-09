@@ -27,7 +27,7 @@
 
                 //TODO: better exceptions
                 if (policyAccount == null)
-                    throw new NullReferenceException();
+                    throw new NullReferenceException(nameof(policyAccount));
 
                 //TODO: Move mapping to Automapper
                 return new GetAccountBalanceQueryResult()
