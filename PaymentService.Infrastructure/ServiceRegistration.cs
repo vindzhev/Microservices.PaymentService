@@ -10,7 +10,7 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
 
-    using MicroservicesPOC.Shared;
+    using MicroservicesPOC.Shared.Common;
     using MicroservicesPOC.Shared.Messaging;
     using MicroservicesPOC.Shared.Messaging.Events;
 
@@ -23,7 +23,7 @@
     using PaymentService.Infrastructure.Persistance.Repositories;
 
     using PaymentService.Infrastructure.Messaging.Handlers;
-    
+
     public static class ServiceRegistration
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
@@ -57,6 +57,14 @@
 
             //Execute every minute
             RecurringJob.AddOrUpdate<InPaymentRegistrationJob>(x => x.Run(), "0 * * 1 * *");
+        }
+
+        public static void UpdateDatabase(this IApplicationBuilder app)
+        {
+            using var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
+            using var context = serviceScope.ServiceProvider.GetService<PaymentDbContext>();
+
+            context.Database.Migrate();
         }
     }
 }

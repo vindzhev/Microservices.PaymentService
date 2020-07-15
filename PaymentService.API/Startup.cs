@@ -42,7 +42,10 @@ namespace PaymentService.API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
+            {
+                app.UpdateDatabase();
                 app.UseDeveloperExceptionPage();
+            }
             else app.UseHsts();
 
             //app.UseCustomExceptionHandler();
